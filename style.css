@@ -163,8 +163,9 @@ button:active {
     }
 
     .img-foto {
-        width: 380px;
+        width: 300px;
         border-radius: 18px;
         opacity: 0.87;
+        margin-bottom: 18px;
     }
 }
