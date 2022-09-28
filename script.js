@@ -1,7 +1,7 @@
 const quoteContainer = document.getElementById('quote-container')
 const quoteText = document.getElementById('quote')
-const authorText = document.getElementById('author')
-const twitterBtn = document.getElementById('twitter')
+const giftText = document.getElementById('giftText')
+const queenBtn = document.getElementById('queen')
 const newQuoteBtn = document.getElementById('newquote')
 const loader = document.getElementById('loader')
 
@@ -22,62 +22,64 @@ function complete() {
         quoteContainer.hidden = false;
 }
 
-//Show new quote
-function newQuote(){
+//Show new randome number and gift from Rey.
+function newGift(){
         loading();
-        //pick a random quote from apiQuotes array
-        const quote =  localQuotes[Math.floor(Math.random() * localQuotes.length)];
-        const sorpresa = Gift [Math.floor(Math.random() * Gift.length)];
+        //pick a random number and gift from gift array
+        const randomeNumero =  objectNumeros[Math.floor(Math.random() * objectNumeros.length)];
+        const sorpresa = gift[Math.floor(Math.random() * gift.length)];
 
         console.log(sorpresa.regalo);
         
         //Check ir author field is blanck and replace it with unknow
         if(!sorpresa.regalo) {
-                authorText.textContent = 'unknown';
+                giftText.textContent = 'unknown';
 
         } else {
-                authorText.textContent = sorpresa.regalo;
+                giftText.textContent = sorpresa.regalo;
         }
  
         // Check quote lenght to determine syling
-        if(quote.text.length > 120) {
+        if(randomeNumero.text.length > 120) {
                 quoteText.classList.add('long-quote')
         } else {
                 quoteText.classList.remove('long-quote')
         }
 
         // Set quote, hide loader
-        quoteText.textContent = quote.text;
+        quoteText.textContent = randomeNumero.text;
         complete();
         
 
 }
 
-function newQuote2(){
-        loading();
-        //pick a random quote from apiQuotes array
-        const quote =  localQuotes[Math.floor(Math.random() * localQuotes.length)];
-        const sorpresa2 = Gift2 [Math.floor(Math.random() * Gift2.length)];
+// Show randome gift and number from queen.
 
-        console.log(sorpresa2.regalo);
+function newGift2(){
+        loading();
+        //pick a random number and gift from gift array
+        const randomeNumero =  objectNumeros[Math.floor(Math.random() * objectNumeros.length)];
+        const sorpresa = gift2[Math.floor(Math.random() * gift2.length)];
+
+        console.log(sorpresa.regalo);
         
         //Check ir author field is blanck and replace it with unknow
-        if(!sorpresa2.regalo) {
-                authorText.textContent = 'unknown';
+        if(!sorpresa.regalo) {
+                giftText.textContent = 'unknown';
 
         } else {
-                authorText.textContent = sorpresa2.regalo;
+                giftText.textContent = sorpresa.regalo;
         }
  
         // Check quote lenght to determine syling
-        if(quote.text.length > 120) {
+        if(randomeNumero.text.length > 120) {
                 quoteText.classList.add('long-quote')
         } else {
                 quoteText.classList.remove('long-quote')
         }
 
         // Set quote, hide loader
-        quoteText.textContent = quote.text;
+        quoteText.textContent = randomeNumero.text;
         complete();
         
 
@@ -88,30 +90,9 @@ function newQuote2(){
 
 
 
-
-// get quotes from api
-// async function getQuotes() {
-//         loading();
-//         const apiUrl = "https://type.fit/api/quotes"; 
-//         try {
-//         const response = await fetch(apiUrl); 
-//         apiQuotes = await response.json();  
-//         newQuote();      
-//         } catch(error) {
-//                 // Catch error here
-        
-//         }
-// }
-
-// Tweet Quote
-function tweetQuote() {
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} -${authorText.textContent}`;
-        window.open(twitterUrl, '_blank')
-}
-
 //Event listener
-newQuoteBtn.addEventListener('click', (newQuote));
-twitterBtn.addEventListener('click', (newQuote2))
+newQuoteBtn.addEventListener('click', (newGift));
+queenBtn.addEventListener('click', (newGift2))
 
 
 // on load
